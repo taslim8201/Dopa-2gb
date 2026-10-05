@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DOPA</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="/"><span class="brand-icon">▶</span><span><b>DOPA</b><small>Video archive</small></span></a>
+  <nav><a href="#episodes">Episodes</a><a href="/admin.html">Admin</a></nav>
+</header>
+
+<main>
+<section class="hero">
+  <div>
+    <p class="eyebrow">YOUR VIDEO LIBRARY</p>
+    <h1>Watch your episodes<br><span>in one place.</span></h1>
+    <p class="hero-copy">A mobile-friendly OTT-style video library for your own content.</p>
+    <a class="button" href="#episodes">Browse episodes</a>
+  </div>
+</section>
+
+<section id="episodes" class="section">
+  <div class="section-head">
+    <div><p class="eyebrow">LIBRARY</p><h2>Latest episodes</h2></div>
+    <select id="seasonFilter"><option value="all">All seasons</option></select>
+  </div>
+  <div id="grid" class="grid"><div class="empty">Loading…</div></div>
+</section>
+</main>
+
+<div id="modal" class="modal hidden">
+  <div class="modal-card">
+    <button id="close" class="close">×</button>
+    <div id="playerWrap"></div>
+    <div class="player-info"><p id="meta" class="eyebrow"></p><h2 id="title"></h2><p id="description"></p></div>
+  </div>
+</div>
+<footer>StreamBox • Use only content you own or are authorized to distribute.</footer>
+<script src="/app.js"></script>
+</body>
+</html>

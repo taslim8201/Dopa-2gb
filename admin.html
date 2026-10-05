@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin — DOPA</title>
+<link rel="stylesheet" href="/styles.css">
+<script src="https://upload-widget.cloudinary.com/latest/global/all.js"></script>
+</head>
+
+<body>
+
+<header class="topbar">
+  <a class="brand" href="/">
+    <span class="brand-icon">▶</span>
+    <span><b>DOPA</b><small>Admin</small></span>
+  </a>
+  <nav><a href="/">View site</a></nav>
+</header>
+
+<main class="admin-wrap">
+
+<div class="admin-head">
+  <p class="eyebrow">CONTENT MANAGEMENT</p>
+  <h1>Add an episode</h1>
+  <p>Publish episodes using DOPA Storage, Cloudinary or YouTube.</p>
+</div>
+
+<section class="panel">
+
+<label>Admin password
+  <input id="password" type="password" placeholder="Netlify ADMIN_PASSWORD">
+</label>
+
+<label>Video source
+  <select id="videoSource">
+    <option value="r2">DOPA Storage (large videos)</option>
+    <option value="cloudinary">Cloudinary</option>
+    <option value="youtube">YouTube</option>
+  </select>
+</label>
+
+<div id="r2Box">
+  <button class="button secondary" id="r2VideoBtn" type="button">🎬 Choose large video</button>
+  <div class="upload-status"><b>Video:</b> <span id="r2VideoStatus">Not selected</span></div>
+  <p class="hint">DOPA Storage uses multipart upload. It is designed for 2 GB+ videos and can resume individual parts if the browser stays open.</p>
+</div>
+
+<div id="cloudinaryBox">
+
+  <div class="two">
+
+    <label>Cloudinary Cloud Name
+      <input id="cloudName" placeholder="e.g. demo">
+    </label>
+
+    <label>Unsigned Upload Preset
+      <input id="uploadPreset" placeholder="e.g. my_unsigned_preset">
+    </label>
+
+  </div>
+
+  <p class="hint">
+    Cloud name and preset are saved only in this browser.
+  </p>
+
+  <div class="two">
+
+    <button class="button secondary" id="videoBtn" type="button">
+      🎬 Choose video
+    </button>
+
+    <button class="button secondary" id="thumbBtn" type="button">
+      🖼️ Choose thumbnail
+    </button>
+
+  </div>
+
+  <div class="upload-status">
+    <div>
+      <b>Video:</b>
+      <span id="videoStatus">Not selected</span>
+    </div>
+
+    <div>
+      <b>Thumbnail:</b>
+      <span id="thumbStatus">Not selected</span>
+    </div>
+  </div>
+
+</div>
+
+<div id="youtubeBox" style="display:none">
+
+  <label>YouTube Video URL
+    <input
+      id="youtubeUrl"
+      type="url"
+      placeholder="https://www.youtube.com/watch?v=..."
+    >
+  </label>
+
+  <p class="hint">
+    Paste the normal YouTube video link here.
+  </p>
+
+</div>
+
+<div class="two">
+
+  <label>Title
+    <input id="titleInput" placeholder="Episode 2" required>
+  </label>
+
+  <label>Duration
+    <input id="durationInput" placeholder="42m 10s">
+  </label>
+
+</div>
+
+<div class="two">
+
+  <label>Season
+    <input id="seasonInput" type="number" min="1" value="1">
+  </label>
+
+  <label>Episode
+    <input id="episodeInput" type="number" min="1" value="2">
+  </label>
+
+</div>
+
+<label>Description
+  <textarea
+    id="descriptionInput"
+    rows="4"
+    placeholder="Short description…"
+  ></textarea>
+</label>
+
+<button class="button" id="publishBtn" type="button">
+  Publish Episode
+</button>
+
+<p id="status" class="status"></p>
+
+</section>
+
+<section class="admin-list">
+
+  <h2>Published episodes</h2>
+
+  <div id="adminGrid" class="admin-grid"></div>
+
+</section>
+
+</main>
+
+<script src="/admin.js"></script>
+
+</body>
+</html>
